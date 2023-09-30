@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>let"s Quize</title>
+   <style>
+   body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); */
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+      min-height: 100vh;
+     /* background: url("b4.jpeg"); */
+     /* background-position: center;
+     position: fixed;
+     padding-left: 25%;
+     margin-top: 5%;
+     background-size:auto;
+     */
+ 
+   }
+   main {
+      background-color: #27d2bb;
+      /* background-image: linear-gradient(315deg, #6bb71a 0%, #2eb5d0 74%); */
+      background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+      border-radius: 20px;
+      color:white;
+      margin: 10% 0 30%;
+      
+  }
+  .header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100%;
+  }
+  .logo{
+    font-size: 27px;
+    color:azure;
+    text-decoration: none;
+    font-weight: 700;
+    filter: drop-shadow(0 0 5px #09001d);
+  }
+  .navbar a{
+    font-size: 15px;
+    color: azure;
+    text-decoration: none;
+    font-weight: 500;
+    /* margin-left: 2px; */
+    margin-right: 30px;
+    transition: .3s;
+  }
+  .navbar a:hover,
+  .navbar a.active{
+    color:#46eefa ;
+  }
+  /* .main{
+    min-height: 100vh;
+    background: url('/b4.jpeg');
+    background-size: cover ;
+    background-position: center;
+  } */
+  .quiz-container {
+  list-style: none;
+  box-shadow: 30px 30px 100px rgba(6, 17, 53, 0.5);
+  border-radius: 30px;
+  padding: 5rem;
+  background-color:mintcream;
+  color: rgb(18, 27, 164);
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  box-shadow:#051937 70% ;
+
+}
+  button#submit {
+  padding: 0.9rem;
+  border: none;
+  border-radius: 7px;
+  background-color: rgb(13, 22, 89);
+  color: white;
+  font-size: 1rem;
+  margin: 1rem 0 0 65%;
+  /* box-shadow: 0 5px rgb(251, 251, 251); */
+}
+button#previous {
+  padding: 0.9rem;
+  border: none;
+  border-radius: 7px;
+  background-color: rgb(13, 22, 89);
+  color: white;
+  font-size: 1rem;
+  margin: 1rem 0 0 10% 0% 40% 40%;
+}
+button#submit:hover {
+  background-color: rgb(32, 154, 175);
+}
+button#submit:active {
+  background-color: rgb(32, 19, 175);
+  /* box-shadow: 0 5px rgb(251, 255, 255); */
+  transform: translateY(5px); 
+}
+button#previous:hover {
+  background-color: rgb(32, 154, 175);
+}
+button#previous:active {
+  background-color: rgb(32, 19, 175);
+  /* box-shadow: 0 5px rgb(251, 255, 255); */
+  transform: translateY(5px);
+}
+#question {
+  margin: 0 0 2rem 0;
+}
+h1 {
+  text-align: center;
+  z-index: -1;
+}
+#quiz-title{
+   font-weight: 25px;
+   margin-top: 1px;
+   color: #090909;
+}
+.controls > * {
+  margin: 1rem;
+}
+button {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-weight: 300;
+  color: white;
+  outline: none;
+  transform: scale(0.98);
+  transition: all 0.2s;
+}
+button.previous {
+  background: #c84630;
+}  
+button.next {
+  background: #3c91e6;
+  margin-right: 50%;
+}
+button.next:active {
+  background-color: rgb(32, 19, 175);
+  box-shadow: 0 5px rgb(251, 255, 255);
+  transform: translateY(4px); 
+ } 
+   </style>
+</head>
+<body>
+  <div class="main">
+    <div class="header">
+      <a href="#" class="logo">Let's Quiz</a>
+
+      <nav class="navbar">
+        <a href="#" class="active">Home</a>
+        <a href="#">About</a>
+        <a href="#">service</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  
+
+  </section>
+ 
+   <main id="quiz-app">
+      <h1 id="quiz-title">JS QUIZ</h1>
+      <div class="quiz-container" id="quiz">
+        <h2 id="question"></h2>
+        <li>
+          <input type="radio" id="a" name="answer" class="answer" value="a" />
+          <label for="a" id="a+"></label>
+        </li>
+        <li>
+          <input type="radio" id="b" name="answer" class="answer" value="b" />
+          <label for="b" id="b+"></label>
+        </li>
+        <li>
+          <input type="radio" id="c" name="answer" class="answer" value="c" />
+          <label for="c" id="c+"></label>
+        </li>
+        
+      </div>
+      <div class="controls">
+        <button id="previous" value="submit">Previous</button>
+        
+        <button id="submit" value="Submit">Next</button> 
+        <!-- <button id="submit" value="Submit">Next</button>  -->
+      </div>
+    </main>
+   <script>
+      const quizData = [
+  {
+    question: 'Who is the current CEO of Google ?',
+    a: 'Sunder Pichai',
+    b: 'Larry Page ',
+    c: 'Jhon Brown',
+    correct: 'a',
+  },
+  {
+    question: 'Who is the current CEO of Amazon ?',
+    a: 'Jeff Bezos',
+    b: 'Warren Buffet ',
+    c: 'Andy Jassy',
+    correct: 'c',
+  },
+  {
+    question: 'Who is the current CEO of Tesla ?',
+    a: 'Jeffry Black',
+    b: 'Elon Musk ',
+    c: 'Jhon Brown',
+    correct: 'b',
+  },
+  {
+    question: 'Who is the current CEO of Microsoft ?',
+    a: 'Satya Nadella ',
+    b: 'Tom Klington',
+    c: 'Jhon Brown',
+    correct: 'a',
+  },
+  {
+    question: 'Which of the company is owned by Mark Zkerburg ?',
+    a: 'Neuralink ',
+    b: 'Meta Platforms Inc ',
+    c: 'Metaverse LLC ',
+    correct: 'b',
+  },
+];
+const question = document.getElementById('question');
+const a = document.getElementById('a+');
+const b = document.getElementById('b+');
+const c = document.getElementById('c+');
+const btn = document.getElementById('submit');
+const all_answer = document.querySelectorAll('.answer');
+
+let index = 0;
+let score = 0;
+//get the getSelected answer
+function getSelected() {
+  let ans = undefined;
+  all_answer.forEach((el) => {
+    if (el.checked) {
+      ans = el.id;
+    }
+  });
+  return ans;
+}
+//disselect all answer
+function deselectans() {
+  all_answer.forEach((el) => {
+    el.checked = false;
+  });
+}
+//load the quiz data
+function getquiz() {
+  deselectans();
+  question.innerText = quizData[index].question;
+  a.innerText = quizData[index].a;
+  b.innerText = quizData[index].b;
+  c.innerText = quizData[index].c;
+}
+//move forward the quiz
+function startquiz() {
+  btn.addEventListener('click', () => {
+    let ans = getSelected();
+    if (ans) {
+      if (ans == quizData[index].correct) {
+        score++;
+      }
+    }
+    index++;
+    if (index < quizData.length) {
+      getquiz();
+    } else {
+      alert('score :' + score);
+      location.reload();
+    }
+  });
+}
+getquiz();
+startquiz();
+
+   </script>
+</body>
+</html>
